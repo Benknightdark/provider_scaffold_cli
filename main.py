@@ -104,7 +104,7 @@ class {str(file_name).capitalize()}Page extends StatefulWidget {{
     ''')
         page_file.close()
         # subprocess.run(["dir"])
-        os.system('flutter packages pub run build_runner build')
+        os.system('flutter packages pub run build_runner build --delete-conflicting-outputs')
         return file_name
 
 
