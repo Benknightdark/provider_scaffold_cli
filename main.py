@@ -70,6 +70,8 @@ class {str(file_name).capitalize()}Page extends StatefulWidget {{
     @override
     void initState()  {{
         super.initState();
+        final vm = Provider.of<str(file_name).capitalize()ViewModel>(context, listen: false);
+        // fetch initialize data
     }}
 
     @override
