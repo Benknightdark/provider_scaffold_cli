@@ -30,8 +30,8 @@ class {str(file_name).capitalize()} {{
             f"lib/view_models/{str(file_name).lower()}_view_model.dart", "w+")
         view_model_file.write(f''' 
 import 'package:flutter/cupertino.dart';
-import 'package:{app_name}/models/{str(file_name).capitalize()}.dart';
-import 'package:{app_name}/services/api/{str(file_name).capitalize()}_service.dart';
+import 'package:{app_name}/models/{str(file_name).lower()}.dart';
+import 'package:{app_name}/services/api/{str(file_name).lower()}_service.dart';
 class {str(file_name).capitalize()}ViewModel extends ChangeNotifier {{
         {str(file_name).capitalize()} {str(file_name).lower()} = {str(file_name).capitalize()}();
         {str(file_name).capitalize()}Service {str(file_name).lower()}Service = new {str(file_name).capitalize()}Service();
