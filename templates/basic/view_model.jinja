@@ -1,8 +1,8 @@
-import 'package:json_annotation/json_annotation.dart';
-part '{{ file_name.lower() }}.g.dart';
-@JsonSerializable()
-class {{ file_name.capitalize() }} {
-            {{ file_name.capitalize() }}();
-            factory {{ file_name.capitalize() }}.fromJson(Map<String, dynamic> json) => _${{ file_name.capitalize() }}FromJson(json);
-            Map<String, dynamic> toJson() => _${{ file_name.capitalize() }}ToJson(this);
-        }
+import 'package:flutter/cupertino.dart';
+import 'package:{{ app_name }}/models/{{ file_name.lower() }}.dart';
+import 'package:{{ app_name }}/services/api/{{ file_name.lower() }}_service.dart';
+class {{ file_name.capitalize() }}ViewModel extends ChangeNotifier {
+        {{ file_name.capitalize() }} {{ file_name.lower() }} = {{ file_name.capitalize() }}();
+        {{ file_name.capitalize() }}Service {{ file_name.lower() }}Service = new {{ file_name.capitalize() }}Service();
+        //notifyListeners();
+    }

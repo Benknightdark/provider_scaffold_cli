@@ -12,8 +12,8 @@ class Generator(object):
         env = Environment(loader=file_loader)
         model_template = env.get_template('/basic/model.jinja')
         model_template_output = model_template.render(file_name=file_name)
-        # view_model_template = env.get_template('/basic/view_model.jinja')
-        # view_model_template_output = view_model_template_output.render(file_name=file_name)
+        view_model_template = env.get_template('/basic/view_model.jinja')
+        view_model_template_output = view_model_template.render(app_name=app_name, file_name=file_name)
         # view_template = env.get_template('/basic/view.jinja')
         # view_template_output = view_template.render(file_name=file_name)
         # service_template = env.get_template('/basic/service.jinja')
@@ -31,16 +31,7 @@ class Generator(object):
             os.makedirs('lib/view_models')
         view_model_file = open(
             f"lib/view_models/{str(file_name).lower()}_view_model.dart", "w+")
-        view_model_file.write(f''' 
-import 'package:flutter/cupertino.dart';
-import 'package:{app_name}/models/{str(file_name).lower()}.dart';
-import 'package:{app_name}/services/api/{str(file_name).lower()}_service.dart';
-class {str(file_name).capitalize()}ViewModel extends ChangeNotifier {{
-        {str(file_name).capitalize()} {str(file_name).lower()} = {str(file_name).capitalize()}();
-        {str(file_name).capitalize()}Service {str(file_name).lower()}Service = new {str(file_name).capitalize()}Service();
-        //notifyListeners();
-    }}
-    ''')
+        view_model_file.write(view_model_template_output)
         view_model_file.close()
 
         # services
