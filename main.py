@@ -1,26 +1,23 @@
 import fire
 import os
 import subprocess
-
+from pathlib import Path
+from jinja2 import Environment, PackageLoader,FileSystemLoader
 
 class Generator(object):
     ''' 產生flutter provider mvvm範本程式 '''
 
     def full_code(self, file_name, app_name):
+        file_loader = FileSystemLoader('templates')
+        env = Environment(loader=file_loader)
+        model_template = env.get_template('/basic/model.jinja')
+        model_template_output = model_template.render(file_name=file_name)
         ''' 產生完整範本程式 '''
         # models
         if not os.path.exists('lib/models'):
             os.makedirs('lib/models')
         model_file = open(f"lib/models/{str(file_name).lower()}.dart", "w+")
-        model_file.write(f'''
-import 'package:json_annotation/json_annotation.dart';
-part '{str(file_name).lower()}.g.dart';
-@JsonSerializable()
-class {str(file_name).capitalize()} {{
-            {str(file_name).capitalize()}();
-            factory {str(file_name).capitalize()}.fromJson(Map<String, dynamic> json) => _${str(file_name).capitalize()}FromJson(json);
-            Map<String, dynamic> toJson() => _${str(file_name).capitalize()}ToJson(this);
-        }}''')
+        model_file.write(model_template_output)
         model_file.close()
 
         # view_models

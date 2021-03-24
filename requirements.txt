@@ -1,2 +1,3 @@
 fire
 pyinstaller
+jinja2
