@@ -12,6 +12,12 @@ class Generator(object):
         env = Environment(loader=file_loader)
         model_template = env.get_template('/basic/model.jinja')
         model_template_output = model_template.render(file_name=file_name)
+        # view_model_template = env.get_template('/basic/view_model.jinja')
+        # view_model_template_output = view_model_template_output.render(file_name=file_name)
+        # view_template = env.get_template('/basic/view.jinja')
+        # view_template_output = view_template.render(file_name=file_name)
+        # service_template = env.get_template('/basic/service.jinja')
+        # service_template_output = service_template.render(file_name=file_name)        
         ''' 產生完整範本程式 '''
         # models
         if not os.path.exists('lib/models'):
