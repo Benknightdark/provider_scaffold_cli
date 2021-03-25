@@ -3,11 +3,12 @@ import os
 import subprocess
 from pathlib import Path
 from jinja2 import Environment, PackageLoader,FileSystemLoader
-
+import requests
 class Generator(object):
     ''' 產生flutter provider mvvm範本程式 '''
 
     def full_code(self, file_name, app_name):
+        r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
         file_loader = FileSystemLoader('templates')
         env = Environment(loader=file_loader)
         model_template = env.get_template('/basic/model.jinja')
