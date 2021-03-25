@@ -3,6 +3,6 @@ part '{{ split_file_name.lower() }}_model.g.dart';
 @JsonSerializable()
 class {{ file_name }}Model {
             {{ file_name }}Model();
-            factory {{ file_name }}.fromJson(Map<String, dynamic> json) => _${{ file_name }}FromJson(json);
-            Map<String, dynamic> toJson() => _${{ file_name }}ToJson(this);
+            factory {{ file_name }}ModelModel.fromJson(Map<String, dynamic> json) => _${{ camel_file_name }}ModelFromJson(json);
+            Map<String, dynamic> toJson() => _${{ camel_file_name }}ModelToJson(this);
         }
