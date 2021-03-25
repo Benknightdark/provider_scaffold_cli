@@ -7,7 +7,7 @@ import requests
 class Generator(object):
     ''' 產生flutter provider mvvm範本程式 '''
     template_url='https://raw.githubusercontent.com/Benknightdark/provider_scaffold_cli/main/templates'
-    def full_code(self, file_name, app_name):
+    def basic(self, file_name, app_name):
         template_url=f'{self.template_url}/basic'
         r = requests.get(f'{template_url}/model.jinja').text
         model_template_output =Template(r).render(file_name=file_name)  
@@ -47,7 +47,6 @@ class Generator(object):
         page_file = open(f"lib/pages/{str(file_name).lower()}_page.dart", "w+")
         page_file.write(view_template_output)
         page_file.close()
-        # subprocess.run(["dir"])
         os.system('flutter packages pub run build_runner build --delete-conflicting-outputs')
         return file_name
 
