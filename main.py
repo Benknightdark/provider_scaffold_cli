@@ -10,7 +10,8 @@ root_template_url = 'https://raw.githubusercontent.com/Benknightdark/provider_sc
 
 def generate_code(template_type, file_name, app_name):
     '''產生範本程式 '''
-    split_file_name='_'.join(re.findall('[A-Z][a-z]*', file_name)) 
+    split_file_name='_'.join(re.findall('[A-Z][a-z]*', file_name))
+    print(split_file_name) 
     template_url = f'{root_template_url}/{template_type}'
     r = requests.get(f'{template_url}/model.jinja').text
     model_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name)
