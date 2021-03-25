@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:{{ app_name }}/view_models/{{ file_name.lower() }}_view_model.dart';
-
+import 'package:{{ app_name }}/widgets/empty_page_widget.dart';
 class {{ file_name.capitalize() }}Page extends StatefulWidget {
     @override
     _{{ file_name.capitalize() }}PageState createState() => _{{ file_name.capitalize() }}PageState();
@@ -30,16 +30,27 @@ class {{ file_name.capitalize() }}Page extends StatefulWidget {
             title: Text('{{ file_name.capitalize() }}'),
         ),
         body: SingleChildScrollView(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+            child: vm.data == null
+            ? EmptyPageWidget()
+            : Column(
                 children: [
-                Column(children: <Widget>[
-                    Row(
-                    children: <Widget>[],
-                    )
-                ]),
-                ]),
+                  Expanded(
+                      child: ListView.builder(
+                    controller: _controller,
+                    itemCount: vm.productData.length,
+                    itemBuilder: (context, index) {
+                      final item = vm.productData[index];
+                      return Card(
+                          child: SizedBox(
+                              height: 200,
+                              child: ListTile(
+                                onTap: () {},
+                                title: Text("title")                                              
+                              )));
+                    },
+                  ))
+                ],
+              ),
         ),
         );
     }

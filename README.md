@@ -6,4 +6,6 @@ python -m pip install -r requirements.txt
 pyinstaller --onefile   main.py
 # 範例Command
  ./main.py  basic --file_name home --app_name upl 
+./main.py  list --file_name home --app_name upl 
+
 ```

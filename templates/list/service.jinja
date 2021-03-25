@@ -1,3 +1,17 @@
 import 'package:dio/dio.dart';
+import 'package:{{ app_name }}/services/api/base_api_service.dart';
 
-class {{ file_name.capitalize() }}Service {}
+class {{ file_name.capitalize() }}Service {
+  Future<Response<dynamic>> getData(int pageSkip, int perPageCount) async {
+    try {
+      var request = await BaseApiService()
+          .customDio()
+          .get("api/{{ file_name.capitalize() }}/$pageSkip/$perPageCount");
+      return request;
+    } on Exception catch (e) {
+      EasyLoading.showError(e.toString());
+      return null;
+    }
+  }
+
+}

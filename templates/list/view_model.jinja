@@ -9,7 +9,7 @@ class {{ file_name.capitalize() }}ViewModel extends ChangeNotifier {
         {{ file_name.capitalize() }} {{ file_name.lower() }} = {{ file_name.capitalize() }}();
         {{ file_name.capitalize() }}Service {{ file_name.lower() }}Service = new {{ file_name.capitalize() }}Service();
         Future fetchData() async {
-            EasyLoading.show(status: "資料載入中");
+            EasyLoading.show(status: "Loading");
             final fetchdata = await {{ file_name.lower() }}Service.getData(pageSkip, perPageCount);
             for (var item in fetchdata.data['data']) {
             data.add(item);
