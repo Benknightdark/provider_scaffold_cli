@@ -1,8 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:{{ app_name }}/models/{{ file_name.lower() }}.dart';
 import 'package:{{ app_name }}/services/api/{{ file_name.lower() }}_service.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 class {{ file_name.capitalize() }}ViewModel extends ChangeNotifier {
+        List<Map<String, dynamic>> data = [];
+        int pageSkip = 0;
+        int perPageCount = 15;
         {{ file_name.capitalize() }} {{ file_name.lower() }} = {{ file_name.capitalize() }}();
         {{ file_name.capitalize() }}Service {{ file_name.lower() }}Service = new {{ file_name.capitalize() }}Service();
-        //notifyListeners();
+        Future fetchData() async {
+            EasyLoading.show(status: "資料載入中");
+            final fetchdata = await {{ file_name.lower() }}Service.getData(pageSkip, perPageCount);
+            for (var item in fetchdata.data['data']) {
+            data.add(item);
+            }
+            notifyListeners();
+            EasyLoading.dismiss();
+        }        
     }
