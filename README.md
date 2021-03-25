@@ -6,4 +6,6 @@ python3 -m pip install -r requirements.txt
 # 打包程式
 pyinstaller --onefile   main.py
 pyinstaller main.py  --add-data='./templates/basic/*;./templates/basic/' 
+# 範例Command
+ ./main.py  full_code --file_name home --app_name upl 
 ```
