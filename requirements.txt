@@ -2,3 +2,4 @@ fire
 pyinstaller
 jinja2
 requests
+pyhumps
