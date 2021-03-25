@@ -61,10 +61,21 @@ class Generator(object):
     ''' 產生flutter provider mvvm範本程式 '''
 
     def basic(self, file_name, app_name):
-        ''' 基本範本 '''
+        '''
+        產生基本範本
+        :param file_name: 檔案名稱
+        :param app_name: App專案名稱                        
+        '''
         generate_code("basic", file_name, app_name)
         return file_name
-
+    def list(self, file_name, app_name):
+        ''' 
+        產生列表範本 
+        :param file_name: 檔案名稱
+        :param app_name: App專案名稱 
+        '''
+        generate_code("list", file_name, app_name)
+        return file_name
 
 if __name__ == '__main__':
     fire.Fire(Generator)
