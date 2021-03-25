@@ -5,27 +5,31 @@ from pathlib import Path
 from jinja2 import Environment, PackageLoader, FileSystemLoader, Template
 import requests
 import re
+import humps
+
 root_template_url = 'https://raw.githubusercontent.com/Benknightdark/provider_scaffold_cli/main/templates'
 
 
 def generate_code(template_type, file_name, app_name):
     '''產生範本程式 '''
     split_file_name='_'.join(re.findall('[A-Z][a-z]*', file_name))
+    camel_file_name=humps.camelize(split_file_name)
+    print(camel_file_name)
     print(split_file_name) 
     template_url = f'{root_template_url}/{template_type}'
     r = requests.get(f'{template_url}/model.jinja').text
-    model_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name)
+    model_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name)
 
     r = requests.get(f'{template_url}/view_model.jinja').text
     view_model_template_output = Template(r).render(
-        app_name=app_name, file_name=file_name,split_file_name=split_file_name)
+        app_name=app_name, file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name)
 
     r = requests.get(f'{template_url}/view.jinja').text
     view_template_output = Template(r).render(
-        app_name=app_name, file_name=file_name,split_file_name=split_file_name)
+        app_name=app_name, file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name)
 
     r = requests.get(f'{template_url}/service.jinja').text
-    service_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name)
+    service_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name)
 
     # models
     if not os.path.exists('lib/models'):
