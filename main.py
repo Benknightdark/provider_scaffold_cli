@@ -1,4 +1,3 @@
-# -*- encoding: utf8-*-
 import fire
 import os
 import subprocess
