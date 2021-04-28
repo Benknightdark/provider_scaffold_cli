@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:{{ app_name }}/view_models/{{ split_file_name.lower() }}_view_model.dart';
 
-class {{ file_name }}Page extends StatefulWidget {
+class {{ class_name }}Page extends StatefulWidget {
     @override
-    _{{ file_name }}PageState createState() => _{{ file_name }}PageState();
+    _{{ class_name }}PageState createState() => _{{ class_name }}PageState();
     }
 
-    class _{{ file_name }}PageState extends State<{{ file_name }}Page> {
+    class _{{ class_name }}PageState extends State<{{ class_name }}Page> {
     @override
     void initState()  {
         super.initState();
-        final vm = Provider.of<{{ file_name }}ViewModel>(context, listen: false);
+        final vm = Provider.of<{{ class_name }}ViewModel>(context, listen: false);
         // fetch initialize data
     }
 
@@ -23,11 +23,11 @@ class {{ file_name }}Page extends StatefulWidget {
 
     @override
     Widget build(BuildContext context)  {
-        final vm = Provider.of<{{ file_name }}ViewModel>(context);
+        final vm = Provider.of<{{ class_name }}ViewModel>(context);
 
         return Scaffold(
         appBar: AppBar(
-            title: Text('{{ file_name }}'),
+            title: Text('{{ class_name }}'),
         ),
         body: SingleChildScrollView(
             child: Column(

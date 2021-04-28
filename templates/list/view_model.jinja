@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:{{ app_name }}/models/{{ split_file_name.lower() }}.dart';
 import 'package:{{ app_name }}/services/api/{{ split_file_name.lower() }}_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-class {{ file_name }}ViewModel extends ChangeNotifier {
+class {{ class_name }}ViewModel extends ChangeNotifier {
         List<Map<String, dynamic>> data = [];
         int pageSkip = 0;
         int perPageCount = 15;
-        {{ file_name }} {{ camel_file_name }}Model = {{ file_name }}();
-        {{ file_name }}Service {{ camel_file_name }}Service = new {{ file_name }}Service();
+        {{ class_name }} {{ camel_file_name }}Model = {{ class_name }}();
+        {{ class_name }}Service {{ camel_file_name }}Service = new {{ class_name }}Service();
         Future fetchData() async {
             EasyLoading.show(status: "Loading");
             final fetchdata = await {{ camel_file_name }}Service.getData(pageSkip, perPageCount);

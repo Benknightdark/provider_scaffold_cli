@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:{{ app_name }}/services/api/base_api_service.dart';
 
-class {{ file_name }}Service {
+class {{ class_name }}Service {
   Future<Response<dynamic>> getData(int pageSkip, int perPageCount) async {
     try {
       var request = await BaseApiService()

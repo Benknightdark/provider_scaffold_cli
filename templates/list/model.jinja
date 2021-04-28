@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 part '{{ split_file_name.lower() }}_model.g.dart';
 @JsonSerializable()
-class {{ file_name }} {
-            {{ file_name }}Model();
+class {{ class_name }} {
+            {{ class_name }}Model();
             factory {{ file_name }}Model.fromJson(Map<String, dynamic> json) => _${{ file_name }}ModelFromJson(json);
             Map<String, dynamic> toJson() => _${{ file_name }}ModelToJson(this);
         }
