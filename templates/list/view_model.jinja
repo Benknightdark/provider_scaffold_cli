@@ -11,10 +11,10 @@ class {{ class_name }}ViewModel extends ChangeNotifier {
         Future fetchData() async {
             EasyLoading.show(status: "Loading");
             final fetchdata = await {{ camel_file_name }}Service.getData(pageSkip, perPageCount);
-            for (var item in fetchdata.data['data']) {
+            for (var item in fetchdata?.data['data']) {
             data.add(item);
             }
             notifyListeners();
-            EasyLoading.dismiss();
+            // EasyLoading.dismiss();
         }        
     }

@@ -34,21 +34,21 @@ class {{ class_name }}Page extends StatefulWidget {
             ? EmptyPageWidget()
             : Column(
                 children: [
-                  Expanded(
-                      child: ListView.builder(
-                    controller: _controller,
-                    itemCount: vm.productData.length,
-                    itemBuilder: (context, index) {
-                      final item = vm.productData[index];
-                      return Card(
-                          child: SizedBox(
-                              height: 200,
-                              child: ListTile(
-                                onTap: () {},
-                                title: Text("title")                                              
-                              )));
-                    },
-                  ))
+                  // Expanded(
+                  //     child: ListView.builder(
+                  //   controller: _controller,
+                  //   itemCount: vm.productData.length,
+                  //   itemBuilder: (context, index) {
+                  //     final item = vm.productData[index];
+                  //     return Card(
+                  //         child: SizedBox(
+                  //             height: 200,
+                  //             child: ListTile(
+                  //               onTap: () {},
+                  //               title: Text("title")
+                  //             )));
+                  //   },
+                  // ))
                 ],
               ),
         ),
