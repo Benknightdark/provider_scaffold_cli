@@ -35,7 +35,7 @@ def generate_code(template_type, file_name, app_name):
         app_name=app_name, file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name,class_name=class_name)
 
     r = requests.get(f'{template_url}/service.jinja').text
-    service_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name,class_name=class_name)
+    service_template_output = Template(r).render(file_name=file_name,split_file_name=split_file_name,camel_file_name=camel_file_name,class_name=class_name,app_name=app_name,)
 
     # models
     if not os.path.exists('lib/models'):
